@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPB Voleibol</title>
+
+    <!-- Importando a fonte Roboto do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilo do corpo da página */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /*  Container principal */
+        .container {
+            display: flex;
+        }
+
+        /*  Estilo da imagem no topo */
+        .top-image {
+            position: absolute;
+            top: 0;
+            left: 94px;
+            width: calc(100% - 94px);
+            height: 250px;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /*  Estilo da barra lateral */
+        .barra-lateral {
+            width: 94px;
+            height: 100%;
+            background-color: #EBEBEB;
+            color: #04048A;
+            transition: width 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0;
+            border-right: 2px solid #090883;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .barra-lateral:hover {
+            width: 260px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .logo-container div {
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .logo-container div.ipb {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 22px;
+            color: #04048A;
+        }
+
+        .logo-container div.voleibol {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 22px;
+            color: #04048A;
+        }
+
+        .barra-lateral:hover .logo-container div {
+            opacity: 1;
+        }
+
+        .barra-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .barra-lateral li {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .barra-lateral li img {
+            width: 30px;
+            height: auto;
+            display: block;
+            margin-right: 10px;
+        }
+
+        .barra-lateral li div {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0;
+            white-space: nowrap;
+            transition: opacity 0.3s;
+        }
+
+        .barra-lateral:hover li div {
+            opacity: 1;
+        }
+
+        .content {
+            margin-top: 250px;
+            padding: 20px;
+            margin-left: calc(94px + 20px);
+        }
+
+        h2 {
+            color: #04048A;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .table-with-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .table-with-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: none;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        th:not(:last-child),
+        td:not(:last-child) {
+            border-right: 1px solid #ddd;
+            height: 100%;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #04048A;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/Captura de ecrã 2025-01-04 171442.png" alt="Team Photo" class="top-image">
+
+    <div class="barra-lateral">
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">  <img src="img/IPB Voleibol.png" alt="Logotipo IPB Voleibol">
+            <div>
+                <div class="ipb">IPB</div>
+                <div class="voleibol">Voleibol</div>
+            </a>
+        </div> 
+        </a>
+        </div>
+        <ul>
+            <li>
+                <img src="img/Pesquisa.png" alt="Pesquisar">
+                <div>Pesquisar</div>
+            </li>
+            <li>
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                    <img src="img/IPB Voleibol.png" alt="Clube">
+                    <div>Clube</div>
+                </a>
+            </li>
+            <li>
+                <img src="img/Eventos.png" alt="Eventos">
+                <div>Eventos</div>
+            </li>
+            <li>
+                <a href="perfil.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                    <img src="img/Prefile.png" alt="Perfil">
+                    <div>Perfil</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Competições</h2>
+        <div class="table-container">
+            <div class="table-with-image">
+                <img src="img/Comp1.jpg" alt="Competição 1">
+                <table>
+                    <tr>
+                        <th>Localização</th>
+                        <th>Data</th>
+                        <th>Inscrito</th>
+                    </tr>
+                    <tr>
+                        <td>Avª D. Sancho I</td>
+                        <td>23/11/2024</td>
+                        <td>---</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-with-image">
+                <img src="img/Comp2.jpg" alt="Competição 2">
+                <table>
+                    <tr>
+                        <th>Localização</th>
+                        <th>Data</th>
+                        <th>Inscrito</th>
+                    </tr>
+                    <tr>
+                        <td>Rua Engº Moura Pegado</td>
+                        <td>16/12/2024</td>
+                        <td>---</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-with-image">
+                <img src="img/Comp3.jpg" alt="Competição 3">
+                <table>
+                    <tr>
+                        <th>Localização</th>
+                        <th>Data</th>
+                        <th>Inscrito</th>
+                    </tr>
+                    <tr>
+                        <td>Recinto José Pina</td>
+                        <td>20/01/2024</td>
+                        <td>---</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Eventos</h2>
+        <div class="table-container">
+            <div class="table-with-image">
+                <img src="img/Event1.jpg" alt="Evento 1">
+                <table>
+                    <tr>
+                        <th>Localização</th>
+                        <th>Data</th>
+                        <th>Inscrito</th>
+                    </tr>
+                    <tr>
+                        <td>Av. das Cantarias 140</td>
+                        <td>17/11/2024</td>
+                        <td>---</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-with-image">
+                <img src="img/Event2.jpg" alt="Evento 2">
+                <table>
+                    <tr>
+                        <th>Localização</th>
+                        <th>Data</th>
+                        <th>Inscrito</th>
+                    </tr>
+                    <tr>
+                        <td>Recinto José Pina</td>
+                        <td>02/01/2024</td>
+                        <td>---</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-with-image">
+                <img src="img/Event3.jpg" alt="Evento 3">
+                <table>
+                    <tr>
+                        <th>Localização</th>
+                        <th>Data</th>
+                        <th>Inscrito</th>
+                    </tr>
+                    <tr>
+                        <td>R. António Carneiro</td>
+                        <td>26/01/2024</td>
+                        <td>---</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="#">&laquo; Previous</a>
+            <a href="eventpag1.html">1</a>
+            <a href="eventpag2.html">2</a>
+            <a href="eventpag3.html">3</a>
+            <a href="eventpag4.html">4</a>
+            <a href="#">Next &raquo;</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
